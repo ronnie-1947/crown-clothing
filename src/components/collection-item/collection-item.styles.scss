@@ -4,25 +4,34 @@
     flex-direction: column;
     height: 350px;
     align-items: center;
+    cursor: pointer;
+    transition: all .2s;
+    border-radius: 1rem;
+
+    &:hover {
+        -webkit-box-shadow: 0px 0px 34px -6px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: 0px 0px 34px -6px rgba(0, 0, 0, 0.75);
+        box-shadow: 0px 0px 34px -6px rgba(0, 0, 0, 0.75);
+    }
 
     .image {
         width: 100%;
         height: 95%;
         background-size: cover;
         background-position: center;
-        margin-bottom: 5px;
     }
 
     .collection-footer {
         width: 100%;
-        height: 5%;
+        height: 6rem;
         display: flex;
         justify-content: space-between;
-        font-size: 18px;
+        font-size: 1.8rem;
+        align-items: center;
+        padding: 0 1rem;
 
         .name {
             width: 90%;
-            margin-bottom: 15px;
         }
 
         .price {
