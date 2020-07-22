@@ -5,6 +5,8 @@ import './sign-in.styles.scss';
 import FormInput from '../form-input/form-input.component';
 import CustomButton from '../custom-button/custom-button.component';
 
+import {signInWithGoogle} from '../../firebase/firebase.utils';
+
 class SignIn extends Component {
 
     state = {
@@ -12,8 +14,17 @@ class SignIn extends Component {
         password: ''
     }
 
+    handle3rdPartySignIn = (e) =>{
+        e.preventDefault();
+        signInWithGoogle()
+    }
+
     handleSubmit = () => {
-        console.log('lala')
+    }
+    
+    handleChange = (e)=>{
+        const x = e.target.getAttribute('name');
+        this.setState({[x]: e.target.value})
     }
 
     render() {
@@ -41,7 +52,13 @@ class SignIn extends Component {
                         required
                     />
 
-                    <CustomButton type = 'submit'>Sign In</CustomButton>
+                    <div className="buttons">
+                        <CustomButton type ='submit' >Sign In</CustomButton>
+                        <CustomButton type='' onClick={this.handle3rdPartySignIn} isGoogleSignIn>
+                            {' '}
+                            sign In With Google{' '}
+                        </CustomButton>
+                    </div>
                 </form>
             </div>
         )
@@ -49,3 +66,4 @@ class SignIn extends Component {
 }
 
 export default SignIn;
+
